@@ -1,0 +1,12 @@
+#baidu-map-plugin {
+	height: 450px;
+}
+
+#map-pane, #list-pane {
+	height: 100%;
+}
+
+.dropdown-menu {
+	max-height: 140px;
+	overflow-y: scroll;
+}
