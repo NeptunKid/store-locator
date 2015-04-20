@@ -1,5 +1,100 @@
 <!DOCTYPE html>
-<head>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Store Location</title>
+
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<!-- Using http://libs.baidu.com/jquery/1.11.1/jquery.min.js -->
+		<script src="js/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
 </head>
+
 <body>
+    <div class="container">
+        <div class="page-header brand">
+            <h1 class="brand-name">AKQA</h1>
+        </div>
+        <div class="main">
+            <div id="selector-group" class="row">
+				<!--Selector for provinces-->
+				<div class="col-md-6 prov-selector">
+					<div class="row form-group">
+						<div class="col-md-2">选择省份</div>
+						<div id="prov-dropdown" class="dropdown col-md-4">
+							<div class="input-group prov dropdown-toggle" id="prov-picker" data-toggle="dropdown">
+								<input type="text" id="prov-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
+								<div class="input-group-btn">
+									<button id="prov-button" type="button" class="btn btn-default" aria-expanded="false">
+										<span class="caret"></span>
+									</button>
+								</div>
+							</div>
+							<ul id="prov-menu" class="dropdown-menu" role="menu" aria-labelledby="prov-input"></ul>
+						</div>
+					</div>
+				</div>
+				<!--Selector for cities-->
+				<div class="col-md-6 city-selector">
+					<div class="row form-group">
+						<div class="col-md-2">选择城市</div>
+						<div id="city-dropdown" class="dropdown col-md-4">
+							<div class="input-group city dropdown-toggle" id="city-picker" data-toggle="dropdown">
+								<input type="text" id="city-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
+								<div class="input-group-btn">
+									<button id="city-button" type="button" class="btn btn-default" aria-expanded="false">
+										<span class="caret"></span>
+									</button>
+								</div>
+							</div>
+							<ul id="city-menu" class="dropdown-menu" role="menu" aria-labelledby="city-input">
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="select-bar" class="row">
+				<!--Selector for provinces-->
+				<div class="col-md-6 city-selector">
+					<div class="row form-group">
+						<div class="col-md-2">选择城市</div>
+						<select id="city-select" class="span4">
+							<option>北京</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+			<ul class="nav nav-tabs nav-justified" role="tablist">
+				<li id="map-tab" role="presentation" class="active">
+					<a href="#map-pane" aria-controls="map-pane" role="tab" data-toggle="tab">地图模式</a>
+				</li>
+				<li role="presentation" class="location-list">
+					<a href="#list-pane" aria-controls="list-pane" role="tab" data-toggle="tab">列表模式</a>
+				</li>
+			</ul>
+			<!-- Tab panes -->
+			<div id="baidu-map-plugin" class="well tab-content">
+				<div role="tabpanel" class="tab-pane active" id="map-pane">Insert Baidu map here</div>
+				<div role="tabpanel" class="tab-pane" id="list-pane">Insert list here</div>
+            </div>
+        </div>
+	</div>
+
+    <script src="http://api.map.baidu.com/api?v=1.5&ak=Ch1jgxD8xmtI5tObYIoEZ9dL" type="text/javascript"></script>
+	<script src="js/select.js"></script>
 </body>
+</html>
