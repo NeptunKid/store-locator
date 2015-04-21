@@ -23,19 +23,23 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="brand row">
-			<h1 class="brand-name col-md-1 col-sm-2 col-xs-4">
-				<a href='/'>AKQA</a>
+	<div class="container">
+        <div class="brand container">
+			<div class="top-space row hidden-xs"></div>
+			<h1 class="brand-name row">
+				<a class="col-md-1 col-sm-2 col-xs-4" href="/">AKQA</a>
 			</h1>
-        </div>
+			<div class="bottom-space hidden-xs"></div>
+		</div>
         <div class="main container">
 			<div id="selector-group" class="row">
 				<!--Selector for provinces-->
 				<div class="col-md-5 prov-selector">
 					<div class="row form-group">
-						<div class="col-md-3">选择省份</div>
-						<div id="prov-dropdown" class="dropdown col-md-6">
+						<div class="col-md-3 col-md-offset-2 col-xs-4 select-label">
+							<span>选择省份</span>
+						</div>
+						<div id="prov-dropdown" class="dropdown col-md-7 col-xs-8">
 							<div class="row">
 								<div class="input-group prov dropdown-toggle col-md-12 col-sm-12 col-xs-12" id="prov-picker" data-toggle="dropdown">
 									<input type="text" id="prov-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
@@ -53,8 +57,10 @@
 				<!--Selector for cities-->
 				<div class="col-md-5 city-selector">
 					<div class="row form-group">
-						<div class="col-md-3">选择城市</div>
-						<div id="city-dropdown" class="dropdown col-md-6">
+						<div class="col-md-3 col-xs-4 col-md-offset-2 select-label">
+							<span>选择城市</span>
+						</div>
+						<div id="city-dropdown" class="dropdown col-md-7 col-xs-8">
 							<div class="row">
 								<div class="input-group city dropdown-toggle col-md-12" id="city-picker" data-toggle="dropdown">
 									<input type="text" id="city-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />

@@ -2,8 +2,14 @@
 .nav-tabs>li>a {
 	text-align: center;
 }
+.nav-tabs {
+	border-bottom: none;
+}
 .nav-tabs>li {
 	padding: 0;
+}
+.nav>li>a {
+	padding: 4px 15px;
 }
 .well {
 	padding: 1px 1px 20px 1px;
@@ -16,17 +22,34 @@
 
 .brand h1 a {
   background: url(../img/logo-white.svg) 0 0 no-repeat;
-    -webkit-background-size: 100% auto;
-  background-size: 100% auto;
+    -webkit-background-size: 78% auto;
+  background-size: 78% auto;
   display: block;
-  margin: -5px 1px 1px 5px;
+  margin: -5px 1px 1px 20px;
   position: relative;
   text-indent: -1000px;
-  width: 88%;
+  /* width: 88%; */
+  min-height: 30px;
   font-size: 1em;
 }
 
+.top-space {
+	height: 36px;
+	position: relative;
+}
+.bottom-space {
+	height: 36px;
+	position: relative;
+}
+#selector-group {
+	padding: 10px;
+}
+.select-label {
+	margin-top: 6px;
+	color: white;
+}
 #baidu-map-plugin {
+	min-height: 350px;
 	height: 450px;
 }
 
