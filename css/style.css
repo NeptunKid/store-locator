@@ -14,6 +14,12 @@
 .well {
 	padding: 1px 1px 20px 1px;
 }
+
+.form-group {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
 /* Local style */
 .brand {
 	border-bottom: 1px solid #eee;
@@ -22,8 +28,8 @@
 
 .brand h2 a {
   background: url(../img/logo-white.svg) 0 0 no-repeat;
-    -webkit-background-size: 88% auto;
-  background-size: 88% auto;
+    -webkit-background-size: contain;
+  background-size: contain;
   display: block;
   margin: -5px 1px 1px 20px;
   position: relative;
@@ -44,10 +50,40 @@
 #selector-group {
 	padding: 10px;
 }
+
+.prov-selector, .city-selector {
+	background-color: #2C2411;
+	border: 1px solid #B09356;
+	margin-bottom: 5px;
+	padding-right: 25px;
+	margin-right:20px;
+}
+
+#prov-input, #city-input {
+	background-color: black;
+	border: none;
+}
+
+.input-group {
+	border-bottom: 2px solid #2C2411;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	-moz-box-shadow: 1px 0px 1px 1px black; /* Older versions of firefox */
+	box-shadow: 1px 0px 1px 1px black;
+}
 .select-label {
 	margin-top: 6px;
 	color: white;
 }
+
+/* Button Style */
+.btn-akqa {
+	color: #FFFEAE;
+	background-color: #D1BD89;
+	border: none;
+}
+
 #baidu-map-plugin {
 	min-height: 350px;
 	height: 450px;
