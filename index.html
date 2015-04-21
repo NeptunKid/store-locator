@@ -25,15 +25,17 @@
 <body>
     <div class="container">
         <div class="page-header brand">
-            <h1 class="brand-name">AKQA</h1>
+			<h1 class="brand-name">
+				<a href='/'>AKQA</a>
+			</h1>
         </div>
         <div class="main">
             <div id="selector-group" class="row">
 				<!--Selector for provinces-->
-				<div class="col-md-6 prov-selector">
+				<div class="col-md-5 prov-selector">
 					<div class="row form-group">
-						<div class="col-md-2">选择省份</div>
-						<div id="prov-dropdown" class="dropdown col-md-4">
+						<div class="col-md-3">选择省份</div>
+						<div id="prov-dropdown" class="dropdown">
 							<div class="input-group prov dropdown-toggle" id="prov-picker" data-toggle="dropdown">
 								<input type="text" id="prov-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
 								<div class="input-group-btn">
@@ -47,10 +49,10 @@
 					</div>
 				</div>
 				<!--Selector for cities-->
-				<div class="col-md-6 city-selector">
+				<div class="col-md-5 city-selector">
 					<div class="row form-group">
-						<div class="col-md-2">选择城市</div>
-						<div id="city-dropdown" class="dropdown col-md-4">
+						<div class="col-md-3">选择城市</div>
+						<div id="city-dropdown" class="dropdown">
 							<div class="input-group city dropdown-toggle" id="city-picker" data-toggle="dropdown">
 								<input type="text" id="city-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
 								<div class="input-group-btn">
@@ -64,32 +66,25 @@
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<div id="select-bar" class="row">
-				<!--Selector for provinces-->
-				<div class="col-md-6 city-selector">
-					<div class="row form-group">
-						<div class="col-md-2">选择城市</div>
-						<select id="city-select" class="span4">
-							<option>北京</option>
-						</select>
-					</div>
+				<div class="col-md-2">
+					<button id="search-btn" type="button" class="btn btn-default" aria-expanded="false">查询
+						<span class="caret"></span>
+					</button>
 				</div>
 			</div>
 			
-			<ul class="nav nav-tabs nav-justified" role="tablist">
-				<li id="map-tab" role="presentation" class="active">
+			<ul class="nav nav-tabs nav-justified row" role="tablist">
+				<li id="map-tab" role="presentation" class="active col-md-2 col-md-offset-4">
 					<a href="#map-pane" aria-controls="map-pane" role="tab" data-toggle="tab">地图模式</a>
 				</li>
-				<li role="presentation" class="location-list">
+				<li role="presentation" class="location-list col-md-2">
 					<a href="#list-pane" aria-controls="list-pane" role="tab" data-toggle="tab">列表模式</a>
 				</li>
 			</ul>
 			<!-- Tab panes -->
 			<div id="baidu-map-plugin" class="well tab-content">
-				<div role="tabpanel" class="tab-pane active" id="map-pane">Insert Baidu map here</div>
-				<div role="tabpanel" class="tab-pane" id="list-pane">Insert list here</div>
+				<div role="tabpanel" class="tab-pane active" id="map-pane">Loading Map...</div>
+				<div role="tabpanel" class="tab-pane" id="list-pane">Loading List...</div>
             </div>
         </div>
 	</div>

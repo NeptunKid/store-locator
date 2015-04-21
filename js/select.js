@@ -16,7 +16,8 @@ function loadMap() {
 function initEverything() {
 	var map = new BMap.Map("map-pane");            // 创建Map实例
 	map.centerAndZoom(new BMap.Point(116.404, 39.915), 5);  // 初始化地图,设置中心点坐标和地图级别
-	map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+	var leftNavigation = new BMap.NavigationControl();  
+	map.addControl(leftNavigation);     
 	map.setCurrentCity("上海");          // 设置地图显示的城市 此项是必须设置的
 	map.enableScrollWheelZoom();
 	$.getJSON ('js/stores.json', function(data) {
@@ -30,23 +31,20 @@ function initEverything() {
 			/* Add each city to the menu and create event handlers. */
 
 			// var cityMenu = $('<ul id="city-menu" class="dropdown-menu" role="menu" aria-labelledby="city-input"></ul>');
-			var cityMenu =$('<ul></ul>');
-			var cityList = [];
+			var cityList = []; //
 			$.each(pval['Cities'], function(i, cval) {
 				var citem = createCity(cval['Name'], cval['Stores']);
-				citem.appendTo(cityMenu);
 				cityList.push(citem);
 			});	
 			item.data('cityList', cityList);
-			item.data('cities', cityMenu); // Bind the city selector to province selector's data.
 			/* Click event handler for province selector.*/
 			item.on('click', function(){
 				$('#prov-input').val(name);
 				$('#city-input').val('');
-				$('#city-menu').empty();
-				// $(this).data('cities').appendTo('#city-menu');// Replace the dropdown menu for cities.
-					$.each($(this).data('cityList'), function(i, city) {
-						city.clone(true).appendTo('#city-menu'); // Deep clone of the city menu.
+				$('#city-menu li').detach();
+				$.each($(this).data('cityList'), function(i, city) {
+					city.appendTo('#city-menu'); // Move city menu back to dom tree.
+					// TODO: Add event listeners of city-menu items here.
 				} );
 			})
 			item.appendTo('#prov-menu');
@@ -59,7 +57,12 @@ function initEverything() {
 		city.val(name);
 		city.data('stores', storeList);
 		city.data('drawn', false); // Newly created city is not drawn yet.
-		/* Click event handler for city dropdown selector. */
+		/*
+		 * Click event handler for city dropdown selector.
+		 * TODO: Move the event binding process to click event handler of province seletor.
+		 * Since it's better practice to delete event listeners when an element is off dom tree,
+		 * and re-bind it when added to document structure again.
+		 */
 		city.on('click', function () {
 			$('#city-input').val(name);
 			map.setCurrentCity(name); // TODO: make a closure for name. 
@@ -74,7 +77,10 @@ function initEverything() {
 				$(this).data('pointList', pointList);
 				$(this).data('drawn', true);
 			}
-			map.setViewport($(this).data('pointList')); 
+
+			// Use this line to show all points within the map view.
+			// map.setViewport($(this).data('pointList')); 
+			map.centerAndZoom(name, 12);
 		});
 		return city;
 	}
