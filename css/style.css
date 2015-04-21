@@ -1,26 +1,28 @@
 /* Rewrite bootstrap stylesheet */
-.open>.dropdown-menu {
-	margin-left: 15px;
-}
-
 .nav-tabs>li>a {
 	text-align: center;
 }
 .nav-tabs>li {
 	padding: 0;
 }
-
+.well {
+	padding: 1px 1px 20px 1px;
+}
 /* Local style */
-.page-header h1 a {
+.brand {
+	border-bottom: 1px solid #eee;
+	margin: 1px 0 1px;
+}
+
+.brand h1 a {
   background: url(../img/logo-white.svg) 0 0 no-repeat;
     -webkit-background-size: 100% auto;
   background-size: 100% auto;
   display: block;
-  height: 10%;
-  margin: -3px 1px 1px 20px;
+  margin: -5px 1px 1px 5px;
   position: relative;
   text-indent: -1000px;
-  width: 80px;
+  width: 88%;
   font-size: 1em;
 }
 
