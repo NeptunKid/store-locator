@@ -22,14 +22,14 @@
 
 .brand h2 a {
   background: url(../img/logo-white.svg) 0 0 no-repeat;
-    -webkit-background-size: 78% auto;
-  background-size: 78% auto;
+    -webkit-background-size: 88% auto;
+  background-size: 88% auto;
   display: block;
   margin: -5px 1px 1px 20px;
   position: relative;
   text-indent: -1000px;
   /* width: 88%; */
-  min-height: 30px;
+  min-height: 1em;
   font-size: 1em;
 }
 
