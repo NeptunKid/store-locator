@@ -1,14 +1,26 @@
+/* Rewrite bootstrap stylesheet */
+.open>.dropdown-menu {
+	margin-left: 15px;
+}
+
+.nav-tabs>li>a {
+	text-align: center;
+}
+.nav-tabs>li {
+	padding: 0;
+}
+
+/* Local style */
 .page-header h1 a {
   background: url(../img/logo.svg) 0 0 no-repeat;
     -webkit-background-size: 100% auto;
   background-size: 100% auto;
-    display: block;
-  float: left;
-    height: 32px;
+  display: block;
+  height: 48px;
   margin: -3px 1px 1px 2px;
-    position: relative;
+  position: relative;
   text-indent: -1000px;
-    width: 64px;
+  width: 102px;
 }
 
 #baidu-map-plugin {
@@ -17,9 +29,36 @@
 
 #map-pane, #list-pane {
 	height: 100%;
+	background-color: rgba(255,255,255,0.6);
+	margin: 10px;
+}
+
+#list-pane {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-top: 10px;
+}
+#list-pane ol{
+	list-style: none;
+	display: block;
+}
+
+#list-pane ol li {
+	padding-bottom: 12px;
 }
 
 .dropdown-menu {
 	max-height: 140px;
 	overflow-y: scroll;
+}
+
+li .map-marker{
+	background: url(http://api.map.baidu.com/images/markers.png) -23px 0px no-repeat;
+	width: 19px;
+	height: 25px;
+	cursor: pointer;
+	float: left;
+	overflow: hidden;
+	margin: 2px 6px 6px 10px;
+	display: inline;
 }

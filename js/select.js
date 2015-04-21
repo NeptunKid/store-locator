@@ -63,11 +63,13 @@ function initEverything() {
 		 * Since it's better practice to delete event listeners when an element is off dom tree,
 		 * and re-bind it when added to document structure again.
 		 */
-		city.on('click', function () {
+		city.on('click', function (e) {
+			// e.stopPropagation();
 			$('#city-input').val(name);
-			map.setCurrentCity(name); // TODO: make a closure for name. 
-			if ($(this).data('drawn') == false) { // don't drawn the same city twice.
-				var storeList = $(this).data('stores');
+			map.setCurrentCity(name); // TODO: make a closure for name.
+			$('.info-list').empty(); // Empty the list pane;
+			var storeList = $(this).data('stores');
+			if ($(this).data('drawn') == false) { // Don't drawn the same city twice.
 			    var pointList = [];
 				$.each(storeList, function(i, store){
 					var point = new BMap.Point(store['Longitude'], store['Latitude']);    
@@ -77,7 +79,10 @@ function initEverything() {
 				$(this).data('pointList', pointList);
 				$(this).data('drawn', true);
 			}
-
+            /* Show store infor on the list pane. */
+			$.each(storeList, function(i, store){
+					showOnList(store['Name'], store['Address']);
+			});
 			// Use this line to show all points within the map view.
 			// map.setViewport($(this).data('pointList')); 
 			map.centerAndZoom(name, 12);
@@ -99,4 +104,14 @@ function drawOnMap(map, name, address, point) {
 		this.openInfoWindow(e.target.infoWindow); 
 	});
 	map.addOverlay(marker);    
+}
+
+function showOnList(name, address) {
+	var item = $('<li></li>').addClass('info-list-item row');
+	var icon = $('<span></span>').addClass('map-marker').appendTo(item);
+	var title = $('<div></div>').addClass('info-name').append('<a href="#">' + name + '</a>');
+	title.appendTo(item);
+	var info = $('<div></div>').addClass('info-address').append('<b>地址:</b><span href="#">' + address + '</span>');
+	info.appendTo(item);
+	item.appendTo('.info-list');
 }

@@ -6,13 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Store Location</title>
 
-		<link href="css/style.css" rel="stylesheet">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<!-- Using http://libs.baidu.com/jquery/1.11.1/jquery.min.js -->
-		<script src="js/jquery.min.js"></script>
+		<script src="/js/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -29,13 +29,13 @@
 				<a href='/'>AKQA</a>
 			</h1>
         </div>
-        <div class="main">
-            <div id="selector-group" class="row">
+        <div class="main container">
+			<div id="selector-group" class="row">
 				<!--Selector for provinces-->
 				<div class="col-md-5 prov-selector">
 					<div class="row form-group">
 						<div class="col-md-3">选择省份</div>
-						<div id="prov-dropdown" class="dropdown">
+						<div id="prov-dropdown" class="dropdown col-md-6">
 							<div class="input-group prov dropdown-toggle" id="prov-picker" data-toggle="dropdown">
 								<input type="text" id="prov-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
 								<div class="input-group-btn">
@@ -52,7 +52,7 @@
 				<div class="col-md-5 city-selector">
 					<div class="row form-group">
 						<div class="col-md-3">选择城市</div>
-						<div id="city-dropdown" class="dropdown">
+						<div id="city-dropdown" class="dropdown col-md-6">
 							<div class="input-group city dropdown-toggle" id="city-picker" data-toggle="dropdown">
 								<input type="text" id="city-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
 								<div class="input-group-btn">
@@ -73,18 +73,20 @@
 				</div>
 			</div>
 			
-			<ul class="nav nav-tabs nav-justified row" role="tablist">
+			<ul class="nav nav-tabs row" role="tablist">
 				<li id="map-tab" role="presentation" class="active col-md-2 col-md-offset-4">
 					<a href="#map-pane" aria-controls="map-pane" role="tab" data-toggle="tab">地图模式</a>
 				</li>
-				<li role="presentation" class="location-list col-md-2">
+				<li id="list-tab" role="presentation" class="location-list col-md-2">
 					<a href="#list-pane" aria-controls="list-pane" role="tab" data-toggle="tab">列表模式</a>
 				</li>
 			</ul>
 			<!-- Tab panes -->
 			<div id="baidu-map-plugin" class="well tab-content">
 				<div role="tabpanel" class="tab-pane active" id="map-pane">Loading Map...</div>
-				<div role="tabpanel" class="tab-pane" id="list-pane">Loading List...</div>
+				<div role="tabpanel" class="tab-pane" id="list-pane">
+					<ol class="info-list container"></ol>
+			</div>
             </div>
         </div>
 	</div>
