@@ -25,7 +25,6 @@ function initEverything() {
 		var menu = [];
 		$.each (data['Provinces'], function(i, pval) {
 			var name = pval['Name'];
-			//provinces.push(name);
 			var item = $('<li><a role="menu-item">' + name +'</a></li>' );
 			item.val(name);
 			/* Add each city to the menu and create event handlers. */
@@ -43,7 +42,7 @@ function initEverything() {
 				$('#prov-input').val(name);
 				$('#city-input').val('');
 				$('#city-menu').detach();
-			    $(this).data('cityMenu').appendTo('#city-dropdown .row');
+			    $(this).data('cityMenu').appendTo('#city-dropdown');
 				// TODO: Add event listeners of city-menu items here.
 			});
 			item.appendTo('#prov-menu');

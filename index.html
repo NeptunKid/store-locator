@@ -27,7 +27,7 @@
         <div class="brand container-fluid">
 			<div class="top-space row hidden-xs"></div>
 			<h2 class="brand-name row">
-				<a class="col-md-1 col-sm-2 col-xs-3" href="/">AKQA</a>
+				<a class="col-md-2 col-sm-2 col-xs-3" href="/">AKQA</a>
 			</h2>
 			<div class="bottom-space hidden-xs"></div>
 		</div>
@@ -40,17 +40,19 @@
 							<span>选择省份</span>
 						</div>
 						<div id="prov-dropdown" class="dropdown col-md-8 col-xs-7">
-							<div class="row">
-								<div class="input-group shadow-effect prov dropdown-toggle col-md-12 col-sm-12 col-xs-12" id="prov-picker" data-toggle="dropdown">
-									<input type="text" id="prov-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
-									<div class="input-group-btn">
-										<button id="prov-button" type="button" class="btn btn-akqa" aria-expanded="false">
-											<span class="caret"></span>
-										</button>
+							<!--<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12" > -->
+									<div class="input-group shadow-effect prov dropdown-toggle" data-toggle="dropdown">
+										<input type="text" id="prov-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
+										<div class="input-group-btn">
+											<button id="prov-button" type="button" class="btn btn-akqa" aria-expanded="false">
+												<span class="caret"></span>
+											</button>
+										</div>
 									</div>
-								</div>
-								<ul id="prov-menu" class="dropdown-menu col-md-12 col-md-12 col-xs-12" role="menu" aria-labelledby="prov-input"></ul>
-							</div>
+									<ul id="prov-menu" class="dropdown-menu col-md-12 col-md-12 col-xs-12" role="menu" aria-labelledby="prov-input"></ul>
+									<!--	</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -61,17 +63,13 @@
 							<span>选择城市</span>
 						</div>
 						<div id="city-dropdown" class="dropdown col-md-8 col-xs-7">
-							<div class="row">
-								<div class="input-group shadow-effect city dropdown-toggle col-md-12" id="city-picker" data-toggle="dropdown">
-									<input type="text" id="city-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
-									<div class="input-group-btn">
-										<button id="city-button" type="button" class="btn btn-akqa" aria-expanded="false">
-											<span class="caret"></span>
-										</button>
-									</div>
+							<div class="input-group shadow-effect city dropdown-toggle" id="city-picker" data-toggle="dropdown">
+								<input type="text" id="city-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
+								<div class="input-group-btn">
+									<button id="city-button" type="button" class="btn btn-akqa" aria-expanded="false">
+										<span class="caret"></span>
+									</button>
 								</div>
-								<!--<ul id="city-menu" class="dropdown-menu col-md-12 col-sm-12 col-xs-12" role="menu" aria-labelledby="city-input">
-								</ul> -->
 							</div>
 						</div>
 					</div>

@@ -56,6 +56,7 @@
 
 .brand h2 a {
   background: url(../img/logo-white.svg) 0 0 no-repeat;
+    filter:alpha(Opacity=26); -moz-opacity:0.26; opacity: 0.26;
     -webkit-background-size: contain;
   background-size: contain;
   display: block;
@@ -63,8 +64,8 @@
   position: relative;
   text-indent: -1000px;
   /* width: 88%; */
-  min-height: 1em;
-  font-size: 1em;
+  min-height: 0.7em;
+  font-size: 1.5em;
 }
 
 .top-space {
@@ -88,6 +89,9 @@
 	margin-left: 5px;
 }
 
+#prov-dropdown, #city-dropdown {
+	padding: 0;
+}
 .shadow-effect:before {
 	position: absolute;
 	content: "#";
@@ -143,6 +147,10 @@
 }
 
 /* Button Style */
+
+.input-group-btn {
+	position: relative;
+}
 .btn-akqa {
 	color: #FFFEAE;
 	background-color: #D1BD89;
@@ -172,7 +180,8 @@
 }
 
 .glyphicon-search {
-	padding-right:10px;
+	padding-right: 12px;
+	padding-left: 5px;
 }
 
 #map-tab, #list-tab {
