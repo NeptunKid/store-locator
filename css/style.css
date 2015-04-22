@@ -1,7 +1,4 @@
 /* Rewrite bootstrap stylesheet */
-.nav-tabs>li>a {
-	text-align: center;
-}
 .nav-tabs {
 	border-bottom: none;
 }
@@ -10,7 +7,25 @@
 }
 .nav>li>a {
 	padding: 4px 15px;
+	text-align: center;
+	color: #2B2216;
+	background: black;
+	border: 1px solid #736B4F;
+	border-radius: 0;
+	margin-right: 0;
 }
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+	color: #2B2216;
+	border: 1px solid #736B4F;
+	border-radius: 0;
+	background: -webkit-linear-gradient(150deg, #AE8F5B, #DBCA94, #AE8F5B);
+	background: -moz-linear-gradient(150deg, #AE8F5B, #DBCA94, #AE8F5B);
+	background: -o-linear-gradient(150deg, #AE8F5B, #DBCA94, #AE8F5B);
+	background: -ms-linear-gradient(150deg, #AE8F5B, #DBCA94, #AE8F5B);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#AE8F5B', endColorstr='#DBCA94',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(150deg, #AE8F5B, #DBCA94, #AE8F5B);
+}
+
 .well {
 	padding: 1px 1px 20px 1px;
 }
@@ -22,7 +37,6 @@
 
 /* Local style */
 .brand {
-	border-bottom: 1px solid #eee;
 	margin: 1px 0 1px;
 }
 
@@ -56,21 +70,56 @@
 	border: 1px solid #B09356;
 	margin-bottom: 5px;
 	padding-right: 25px;
-	margin-right:20px;
+	margin-right: 5px;
+	margin-left: 5px;
 }
+
+.shadow-effect:after {
+	position: absolute;
+	content: "#";
+	left: 5px;
+	right: 5px;
+	top: 50%;
+	bottom: 0;
+	z-index: 0;
+	background: #2B220D;
+	border-radius: 50px/10px;
+	box-shadow:0px 0px 20px rgba(0,0,0,0.8);
+	-webkit-box-shadow:0px 0px 10px rgba(0,0,0,0.8);
+	-moz-box-shadow:0px 0px 10px rgba(0,0,0,0.8);
+	-o-box-shadow:0px 0px 10px rgba(0,0,0,0.8);
+}
+
+/*
+.shadow-effect:before {
+	position: absolute;
+	content: "#";
+	left: 5px;
+	right: 5px;
+	top: 50%;
+	bottom: -1px;
+	z-index: 0;
+	background: #2B220D;
+	border-radius: 50px/10px;
+	box-shadow:0px 0px 10px rgba(0,0,0,0.8);
+	-webkit-box-shadow:0px 0px 10px rgba(0,0,0,0.8);
+	-moz-box-shadow:0px 0px 10px rgba(0,0,0,0.8);
+	-o-box-shadow:0px 0px 10px rgba(0,0,0,0.8);
+}*/
 
 #prov-input, #city-input {
 	background-color: black;
 	border: none;
+	-moz-box-shadow: 0px 2px 2px black; /* Older versions of firefox */
+	/* box-shadow: 0px 2px 2px black; */
+	border-bottom: 1px solid #2C2411;
+	z-index: 2;
 }
 
 .input-group {
-	border-bottom: 2px solid #2C2411;
 	border-top: none;
 	border-left: none;
 	border-right: none;
-	-moz-box-shadow: 1px 0px 1px 1px black; /* Older versions of firefox */
-	box-shadow: 1px 0px 1px 1px black;
 }
 .select-label {
 	margin-top: 6px;
@@ -82,17 +131,29 @@
 	color: #FFFEAE;
 	background-color: #D1BD89;
 	border: none;
+	border-bottom: 2px solid #CDB885;
+	z-index: 1;
+}
+
+#search-btn {
+	color: #2B2216;
+	font-size: 1.2em;
 }
 
 #baidu-map-plugin {
 	min-height: 350px;
 	height: 450px;
+	background-color: #DBCA94;
+	border-radius: 0px;
+	border: none;
+	padding: 0;
+	border-top: 1px solid #DBCA94;
 }
 
 #map-pane, #list-pane {
 	height: 100%;
 	background-color: rgba(255,255,255,0.6);
-	margin: 10px;
+	margin: 0;
 }
 
 #list-pane {

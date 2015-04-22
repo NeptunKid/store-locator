@@ -24,14 +24,14 @@
 
 <body>
 	<div class="container">
-        <div class="brand container">
+        <div class="brand container-fluid">
 			<div class="top-space row hidden-xs"></div>
 			<h2 class="brand-name row">
 				<a class="col-md-1 col-sm-2 col-xs-3" href="/">AKQA</a>
 			</h2>
 			<div class="bottom-space hidden-xs"></div>
 		</div>
-        <div class="main container">
+        <div class="main container-fluid">
 			<div id="selector-group" class="row">
 				<!--Selector for provinces-->
 				<div class="col-md-5 prov-selector">
@@ -41,7 +41,7 @@
 						</div>
 						<div id="prov-dropdown" class="dropdown col-md-7 col-xs-8">
 							<div class="row">
-								<div class="input-group prov dropdown-toggle col-md-12 col-sm-12 col-xs-12" id="prov-picker" data-toggle="dropdown">
+								<div class="input-group shadow-effect prov dropdown-toggle col-md-12 col-sm-12 col-xs-12" id="prov-picker" data-toggle="dropdown">
 									<input type="text" id="prov-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
 									<div class="input-group-btn">
 										<button id="prov-button" type="button" class="btn btn-akqa" aria-expanded="false">
@@ -62,7 +62,7 @@
 						</div>
 						<div id="city-dropdown" class="dropdown col-md-7 col-xs-8">
 							<div class="row">
-								<div class="input-group city dropdown-toggle col-md-12" id="city-picker" data-toggle="dropdown">
+								<div class="input-group shadow-effect city dropdown-toggle col-md-12" id="city-picker" data-toggle="dropdown">
 									<input type="text" id="city-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
 									<div class="input-group-btn">
 										<button id="city-button" type="button" class="btn btn-akqa" aria-expanded="false">
@@ -76,10 +76,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-2">
-					<!--<button id="search-btn" type="button" class="btn btn-default" aria-expanded="false">查询
+				<div class="col-md-1 hidden-sm hidden-xs">
+					<button id="search-btn" type="button" class="btn btn-akqa" aria-expanded="false">查询
 						<span class="caret"></span>
-					</button> -->
+					</button>
 				</div>
 			</div>
 			
