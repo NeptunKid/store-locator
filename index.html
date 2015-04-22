@@ -40,19 +40,15 @@
 							<span>选择省份</span>
 						</div>
 						<div id="prov-dropdown" class="dropdown col-md-8 col-xs-7">
-							<!--<div class="row">
-								<div class="col-md-12 col-sm-12 col-xs-12" > -->
-									<div class="input-group shadow-effect prov dropdown-toggle" data-toggle="dropdown">
-										<input type="text" id="prov-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
-										<div class="input-group-btn">
-											<button id="prov-button" type="button" class="btn btn-akqa" aria-expanded="false">
-												<span class="caret"></span>
-											</button>
-										</div>
-									</div>
-									<ul id="prov-menu" class="dropdown-menu col-md-12 col-md-12 col-xs-12" role="menu" aria-labelledby="prov-input"></ul>
-									<!--	</div>
-							</div> -->
+							<div class="input-group shadow-effect prov dropdown-toggle" data-toggle="dropdown">
+								<input type="text" id="prov-input" class="form-control" aria-haspopup="true" aria-expanded="false" aria-label="" />
+								<div class="input-group-btn">
+									<button id="prov-button" type="button" class="btn btn-akqa" aria-expanded="false">
+										<span class="caret"></span>
+									</button>
+								</div>
+							</div>
+							<ul id="prov-menu" class="dropdown-menu" role="menu" aria-labelledby="prov-input"></ul>
 						</div>
 					</div>
 				</div>
@@ -75,7 +71,7 @@
 					</div>
 				</div>
 				<div class="col-md-1 hidden-sm hidden-xs">
-					<button id="search-btn" type="button" class="btn btn-akqa" aria-expanded="false">
+					<button id="search-btn" type="button" class="btn btn-akqa" data-toggle="tooltip" data-placement="right" title="This button should be removed." aria-expanded="false">
 					    <span class="glyphicon glyphicon-search"></span>   查询
 						<span class="glyphicon glyphicon-chevron-right weak-icon"></span>
 					</button>
