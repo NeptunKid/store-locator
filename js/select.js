@@ -3,7 +3,7 @@
 * */
 
 $(function () {
-		loadMap();
+	loadMap();
 });
 
 function loadMap() {
@@ -30,23 +30,22 @@ function initEverything() {
 			item.val(name);
 			/* Add each city to the menu and create event handlers. */
 
-			// var cityMenu = $('<ul id="city-menu" class="dropdown-menu" role="menu" aria-labelledby="city-input"></ul>');
-			var cityList = []; //
+			var cityMenu = $('<ul id="city-menu" class="dropdown-menu col-md-12 col-sm-12 col-xs-12" role="menu" aria-labelledby="city-input">');
+			// var cityList = []; //
 			$.each(pval['Cities'], function(i, cval) {
 				var citem = createCity(cval['Name'], cval['Stores']);
-				cityList.push(citem);
+				// cityList.push(citem);
+				citem.appendTo(cityMenu);
 			});	
-			item.data('cityList', cityList);
+			item.data('cityMenu', cityMenu);
 			/* Click event handler for province selector.*/
 			item.on('click', function(){
 				$('#prov-input').val(name);
 				$('#city-input').val('');
-				$('#city-menu li').detach();
-				$.each($(this).data('cityList'), function(i, city) {
-					city.appendTo('#city-menu'); // Move city menu back to dom tree.
-					// TODO: Add event listeners of city-menu items here.
-				} );
-			})
+				$('#city-menu').detach();
+			    $(this).data('cityMenu').appendTo('#city-dropdown .row');
+				// TODO: Add event listeners of city-menu items here.
+			});
 			item.appendTo('#prov-menu');
 		});
 	});
@@ -64,7 +63,6 @@ function initEverything() {
 		 * and re-bind it when added to document structure again.
 		 */
 		city.on('click', function (e) {
-			// e.stopPropagation();
 			$('#city-input').val(name);
 			map.setCurrentCity(name); // TODO: make a closure for name.
 			$('.info-list').empty(); // Empty the list pane;
@@ -94,13 +92,13 @@ function initEverything() {
 function drawOnMap(map, name, address, point) {
 	var marker = new BMap.Marker(point);        // Create a marker    
 	var opts = {    
-		width : 250,     // 信息窗口宽度    
-		height: 100,     // 信息窗口高度    
-		title : name  // 信息窗口标题   
+		width : 150,         
+		height: 100,       
+		title: "<b>"+name+"</b>"   
 	}    
-	var infoWindow = new BMap.InfoWindow(address, opts);  // 创建信息窗口对象    
+	var infoWindow = new BMap.InfoWindow(address, opts);  // Create infor window object.    
 	marker.infoWindow = infoWindow;
-	marker.addEventListener("click", function(e){//添加标注的点击事件回调
+	marker.addEventListener("click", function(e){ // Open the inforWindow when clicking on marker.
 		this.openInfoWindow(e.target.infoWindow); 
 	});
 	map.addOverlay(marker);    
