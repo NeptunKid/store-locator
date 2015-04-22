@@ -74,53 +74,54 @@
 	margin-left: 5px;
 }
 
-.shadow-effect:after {
-	position: absolute;
-	content: "#";
-	left: 5px;
-	right: 5px;
-	top: 50%;
-	bottom: 0;
-	z-index: 0;
-	background: #2B220D;
-	border-radius: 50px/10px;
-	box-shadow:0px 0px 20px rgba(0,0,0,0.8);
-	-webkit-box-shadow:0px 0px 10px rgba(0,0,0,0.8);
-	-moz-box-shadow:0px 0px 10px rgba(0,0,0,0.8);
-	-o-box-shadow:0px 0px 10px rgba(0,0,0,0.8);
-}
-
-/*
 .shadow-effect:before {
 	position: absolute;
 	content: "#";
 	left: 5px;
 	right: 5px;
 	top: 50%;
-	bottom: -1px;
+	bottom: 0px;
 	z-index: 0;
-	background: #2B220D;
-	border-radius: 50px/10px;
-	box-shadow:0px 0px 10px rgba(0,0,0,0.8);
-	-webkit-box-shadow:0px 0px 10px rgba(0,0,0,0.8);
-	-moz-box-shadow:0px 0px 10px rgba(0,0,0,0.8);
-	-o-box-shadow:0px 0px 10px rgba(0,0,0,0.8);
-}*/
+	background: #2C2411;
+	border-radius: 100px/10px;
+	box-shadow:0px 0px 10px 1px rgba(0,0,0,0.8);
+	-webkit-box-shadow:0px 0px 10px 1px rgba(0,0,0,0.8);
+	-moz-box-shadow:0px 0px 10px 1px rgba(0,0,0,0.8);
+	-o-box-shadow:0px 0px 10px 1px rgba(0,0,0,0.8);
+}
+
+.shadow-effect:after {
+	position: absolute;
+	content: "#";
+	left: 5px;
+	right: 5px;
+	top: 50%;
+	bottom: 0px;
+	z-index: 0;
+	background: #2C2411;
+	border-radius: 100px/10px;
+	box-shadow:0px 0px 10px 1px rgba(0,0,0,0.8);
+	-webkit-box-shadow:0px 0px 10px 1px rgba(0,0,0,0.8);
+	-moz-box-shadow:0px 0px 10px 1px rgba(0,0,0,0.8);
+	-o-box-shadow:0px 0px 10px 1px rgba(0,0,0,0.8);
+}
 
 #prov-input, #city-input {
 	background-color: black;
 	border: none;
-	-moz-box-shadow: 0px 2px 2px black; /* Older versions of firefox */
-	/* box-shadow: 0px 2px 2px black; */
 	border-bottom: 1px solid #2C2411;
 	z-index: 2;
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 .input-group {
 	border-top: none;
 	border-left: none;
 	border-right: none;
+	position: relative;
 }
+
 .select-label {
 	margin-top: 6px;
 	color: white;
@@ -133,11 +134,31 @@
 	border: none;
 	border-bottom: 2px solid #CDB885;
 	z-index: 1;
+	position: relative;
+	float: left;
 }
 
 #search-btn {
 	color: #2B2216;
 	font-size: 1.2em;
+	height: 55px;
+	background: -webkit-linear-gradient(to right, #C2A86E, #AC8A53)
+	background: -moz-linear-gradient(to right, #C2A86E, #AC8A53)
+	background: -o-linear-gradient(to right, #C2A86E, #AC8A53)
+	background: -ms-linear-gradient(to right, #C2A86E, #AC8A53)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#C2A86E', endColorstr='#AC8A53',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(to right, #C2A86E, #AC8A53)
+
+}
+
+.weak-icon {
+	color: rgba(255,255,255,0.2);
+	height: 50%;
+	width: auto;
+}
+
+.glyphicon-search {
+	padding-right:10px;
 }
 
 #baidu-map-plugin {
