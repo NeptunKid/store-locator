@@ -29,7 +29,7 @@ function initEverything() {
 			item.val(name);
 			/* Add each city to the menu and create event handlers. */
 
-			var cityMenu = $('<ul id="city-menu" class="dropdown-menu col-md-12 col-sm-12 col-xs-12" role="menu" aria-labelledby="city-input">');
+			var cityMenu = $('<ul id="city-menu" class="dropdown-menu" role="menu" aria-labelledby="city-input">');
 			// var cityList = []; //
 			$.each(pval['Cities'], function(i, cval) {
 				var citem = createCity(cval['Name'], cval['Stores']);
