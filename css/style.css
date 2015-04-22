@@ -39,6 +39,14 @@
   margin-top: 8px;
 }
 
+.dropdown-menu {
+	max-height: 140px;
+	overflow-y: scroll;
+	background-color:rgba(255,255,255,0.8);
+}
+.dropdown-menu>li>a {
+	color: #281F10;
+}
 /***************************************
  *			 Local style 
  ***************************************/
@@ -183,7 +191,7 @@
 	-webkit-box-shadow: inset 0px 0px 14px 4px black;
 	-moz-box-shadow: inset 0px 0px 14px 4px black;
 	-o-box-shadow: inset 0px 0px 10px 4px black;
-	z-index: 1000;
+	z-index: 500;
 	content: " ";
 	position: absolute;
 	top: 0px;
@@ -210,11 +218,6 @@
 
 #list-pane ol li {
 	padding-bottom: 12px;
-}
-
-.dropdown-menu {
-	max-height: 140px;
-	overflow-y: scroll;
 }
 
 li .map-marker{
