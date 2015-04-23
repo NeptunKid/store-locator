@@ -99,7 +99,7 @@ function searchEventHandler() { // Use this to refer to the city item.
 	    $.each(storeList, function(i, store){
 			var point = new BMap.Point(store['Longitude'], store['Latitude']);    
 			pointList.push(point);
-			drawOnMap(map, store['Name'], store['Address'], point);
+			drawOnMap(store['Name'], store['Address'], point);
 		});
 		$(this).data('pointList', pointList);
 		$(this).data('drawn', true);
