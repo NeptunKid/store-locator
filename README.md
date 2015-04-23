@@ -1,7 +1,10 @@
 # Store-Locator
 _@author: Ruoyi Chen_
+_E-mail: kidlaven@gmail.com_
 
-A store locator demo for AKQA.
+### A Store Locator Demo for AKQA. ###
+Please check out the latest version here: https://github.com/NeptunKid/store-locator
+
 **DEMO**: http://neptunkid.github.io/store-locator/
 **Repo**: https://github.com/NeptunKid/store-locator
 **History**: https://github.com/NeptunKid/store-locator/commits/gh-pages
