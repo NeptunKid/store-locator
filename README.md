@@ -1,12 +1,15 @@
 # Store-Locator
 _@author: Ruoyi Chen_
+
 _E-mail: kidlaven@gmail.com_
 
 ### A Store Locator Demo for AKQA. ###
 Please check out the latest version here: https://github.com/NeptunKid/store-locator
 
 **DEMO**: http://neptunkid.github.io/store-locator/
+
 **Repo**: https://github.com/NeptunKid/store-locator
+
 **History**: https://github.com/NeptunKid/store-locator/commits/gh-pages
 
 
@@ -23,7 +26,8 @@ Please check out the latest version here: https://github.com/NeptunKid/store-loc
    * No re-drawing of cities that have already been drawn before.  
 
 # Compatibility:
-1. PC Browsers:  * Firefox (latest)
+1. PC Browsers:
+  * Firefox (latest)
   * Google Chrome (latest)
   * Safari (latest)
   * Opera (latest)
@@ -39,7 +43,7 @@ Please check out the latest version here: https://github.com/NeptunKid/store-loc
 3. Debug tool: Chrome Developer Tools 
 4. Remote debugging: Real Device.    … - -|
 
-# Plugin and Frameworks:
+# PlugIns and Frameworks:
 1. Bootstrap 3 (customized )
    Bootstrap css & components & js plugin for grid system layout, dropdown menu. 
 2. jQuery 1.11
@@ -48,10 +52,9 @@ Please check out the latest version here: https://github.com/NeptunKid/store-loc
 
 
 # TO-DO:
-
--[ ] Fix the bug of positioning on Android Wechat browser (which is evil): dropdown button & menu list & scroll bar not correctly positioned 
--[ ] Add shadowed triangles to the bottom of tabs 
--[ ] Shorten mobile page to fit phone screens (able to be viewed within a single viewport on iPhone6).  
--[ ] Further polish ui style.
--[ ] Dynamically load mobile version of Baidu Map api when detecting useragent to be mobile device.   
+- [ ] Fix the bug of positioning on Android Wechat browser (which is evil): dropdown button & menu list & scroll bar not correctly positioned. 
+- [ ] Add shadowed triangles to the bottom of tabs 
+- [ ] Shorten mobile page to fit phone screens (able to be viewed within a single viewport on iPhone6).  
+- [ ] Further polish ui style.
+- [ ] Dynamically load mobile version of Baidu Map api when detecting useragent to be mobile device.   
 
