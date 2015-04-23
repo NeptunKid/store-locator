@@ -2,24 +2,8 @@
  * @author: Ruoyi Chen
  **/
 $(function () {
+	var MAP; // Global variable.
 	loadMap();
-});
-
-function loadMap() { // Asynchronously load the lib script.
-	var script = document.createElement("script");
-	script.type = "text/javascript";
-	script.src = "http://api.map.baidu.com/api?v=2.0&ak=Ch1jgxD8xmtI5tObYIoEZ9dL&callback=initEverything";
-	document.body.appendChild(script);
-}
-
-function initEverything() {
-	var map = new BMap.Map("map-pane");            // 创建Map实例
-	var originP = new BMap.Point(116.404, 39.915);
-	map.centerAndZoom(originP, 5);  // 初始化地图,设置中心点坐标和地图级别
-	var leftNavigation = new BMap.NavigationControl();  
-	map.addControl(leftNavigation);     
-	map.setCurrentCity("上海");          // 设置地图显示的城市 此项是必须设置的
-	map.enableScrollWheelZoom();
 	$.getJSON ('js/stores.json', function(data) {
 		var stores = [];
 		var menu = [];
@@ -27,15 +11,14 @@ function initEverything() {
 			var name = pval['Name'];
 			var item = $('<li><a role="menu-item">' + name +'</a></li>' );
 			item.val(name);
-			/* Add each city to the menu and create event handlers. */
-
+			// Add each city to the menu.
 			var cityMenu = $('<ul id="city-menu" class="dropdown-menu" role="menu" aria-labelledby="city-input">');
 			$.each(pval['Cities'], function(i, cval) {
-				var citem = createCity(cval['Name'], cval['Stores']);
+				var citem = createCityDom(cval['Name'], cval['Stores']);
 				citem.appendTo(cityMenu);
 			});	
 			item.data('cityMenu', cityMenu);
-			/* Click event handler for province selector.*/
+			// Click event handler for province selector.
 			item.on('click', function(){
 				$('#prov-input').val(name);
 				$('#city-input').val('');
@@ -46,47 +29,59 @@ function initEverything() {
 			});
 			item.appendTo('#prov-menu');
 		});
+	});
+});
 
-		$('#search-btn').on('click', function() {
-			if ($(this).data('city')) {
-				searchEventHandler.bind($(this).data('city'))(map);	
-			} else { // When no city is chosen, show China map;
-				map.centerAndZoom(originP, 5);	
-			}
+// Create a jQuery object containing dom and data values for a given city.
+var createCityDom = function(name, storeList) {
+	var city = $('<li><a role="menu-item">' + name + '</a></li>');
+	/* Use the data- property to store all store information belong to this city. */
+	city.val(name);
+	city.data('stores', storeList);
+	city.data('drawn', false); // Newly created city is not drawn yet.
+	return city;
+}
+
+function loadMap() { // Asynchronously load the lib script.
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src = "http://api.map.baidu.com/api?v=2.0&ak=Ch1jgxD8xmtI5tObYIoEZ9dL&callback=initMap";
+	document.body.appendChild(script);
+}
+
+function initMap() {
+	var map = new BMap.Map("map-pane");    
+	var originP = new BMap.Point(116.404, 39.915);
+	map.centerAndZoom(originP, 5);
+	var leftNavigation = new BMap.NavigationControl();  
+	map.addControl(leftNavigation);     
+	map.setCurrentCity("上海");
+	map.enableScrollWheelZoom();
+
+	$.each($('#prov-menu').children(), function(i, prov) {
+		$.each($(prov).data('cityMenu').children(), function(j, city) {
+			$(city).on('click', function () {
+				$('#city-input').val($(city).text());
+				if ($('#search-btn').is(':visible')) { // Don't trigger search event handler when search button is shown.
+					$('#search-btn').data('city', $(city));
+				    return;
+				}
+				searchEventHandler.bind($(city))(map);
+			});
 		});
 	});
 
-	var createCity = function(name, storeList) {
-		var city = $('<li><a role="menu-item">' + name + '</a></li>');
-		/* Use the data- property to store all store information belong to this city. */
-		city.val(name);
-		city.data('stores', storeList);
-		city.data('drawn', false); // Newly created city is not drawn yet.
-		/*
-		 * Click event handler for city dropdown selector.
-		 * TODO: Move the event binding process to click event handler of province seletor.
-		 * Since it's better practice to delete event listeners when an element is off dom tree,
-		 * and re-bind it when added to document structure again.
-		 */
-		city.on('click', function () { 
-			$('#city-input').val(name);
-			if ($('#search-btn').is(':visible')) { // Don't trigger search event handler when search button is shown.
-				$('#search-btn').data('city', city);
-			    return;
-			}
-			searchEventHandler.bind(city)(map);
-		});
-		return city;
-	}
+	$('#search-btn').on('click', function() {
+		if ($(this).data('city')) {
+			searchEventHandler.bind($(this).data('city'))(map);	
+		} else { // When no city is chosen, show China map;
+			map.centerAndZoom(originP, 5);	
+		}
+	});
 }  
 
 function searchEventHandler(map) { // Use this to refer to the city item.
 	var name = this.text();
-	/* $('#city-input').val(name);
-    if ($('#search-btn').is(':visible')) { // Don't trigger event handler when search button is shown.
-		$('#search-btn').data('city', this);
-		return;
-	} */
 	map.setCurrentCity(name); 
 	$('.info-list').empty(); // Empty the list pane;
 	var storeList = $(this).data('stores');
