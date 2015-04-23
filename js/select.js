@@ -15,7 +15,8 @@ function loadMap() {
 
 function initEverything() {
 	var map = new BMap.Map("map-pane");            // 创建Map实例
-	map.centerAndZoom(new BMap.Point(116.404, 39.915), 5);  // 初始化地图,设置中心点坐标和地图级别
+	var originP = new BMap.Point(116.404, 39.915);
+	map.centerAndZoom(originP, 5);  // 初始化地图,设置中心点坐标和地图级别
 	var leftNavigation = new BMap.NavigationControl();  
 	map.addControl(leftNavigation);     
 	map.setCurrentCity("上海");          // 设置地图显示的城市 此项是必须设置的
@@ -30,10 +31,8 @@ function initEverything() {
 			/* Add each city to the menu and create event handlers. */
 
 			var cityMenu = $('<ul id="city-menu" class="dropdown-menu" role="menu" aria-labelledby="city-input">');
-			// var cityList = []; //
 			$.each(pval['Cities'], function(i, cval) {
 				var citem = createCity(cval['Name'], cval['Stores']);
-				// cityList.push(citem);
 				citem.appendTo(cityMenu);
 			});	
 			item.data('cityMenu', cityMenu);
@@ -41,11 +40,20 @@ function initEverything() {
 			item.on('click', function(){
 				$('#prov-input').val(name);
 				$('#city-input').val('');
+				$('#search-btn').data('city', null);
 				$('#city-menu').detach();
 			    $(this).data('cityMenu').appendTo('#city-dropdown');
 				// TODO: Add event listeners of city-menu items here.
 			});
 			item.appendTo('#prov-menu');
+		});
+
+		$('#search-btn').on('click', function() {
+			if ($(this).data('city')) {
+				searchEventHandler.bind($(this).data('city'))(map);	
+			} else { // When no city is chosen, show China map;
+				map.centerAndZoom(originP, 5);	
+			}
 		});
 	});
 
@@ -61,32 +69,46 @@ function initEverything() {
 		 * Since it's better practice to delete event listeners when an element is off dom tree,
 		 * and re-bind it when added to document structure again.
 		 */
-		city.on('click', function (e) {
+		city.on('click', function () { 
 			$('#city-input').val(name);
-			map.setCurrentCity(name); // TODO: make a closure for name.
-			$('.info-list').empty(); // Empty the list pane;
-			var storeList = $(this).data('stores');
-			if ($(this).data('drawn') == false) { // Don't drawn the same city twice.
-			    var pointList = [];
-				$.each(storeList, function(i, store){
-					var point = new BMap.Point(store['Longitude'], store['Latitude']);    
-					pointList.push(point);
-					drawOnMap(map, store['Name'], store['Address'], point);
-				});
-				$(this).data('pointList', pointList);
-				$(this).data('drawn', true);
+			if ($('#search-btn').is(':visible')) { // Don't trigger search event handler when search button is shown.
+				$('#search-btn').data('city', city);
+			    return;
 			}
-            /* Show store infor on the list pane. */
-			$.each(storeList, function(i, store){
-					showOnList(store['Name'], store['Address']);
-			});
-			// Use this line to show all points within the map view.
-			// map.setViewport($(this).data('pointList')); 
-			map.centerAndZoom(name, 12);
+			searchEventHandler.bind(city)(map);
 		});
 		return city;
 	}
 }  
+
+function searchEventHandler(map) { // Use this to refer to the city item.
+	var name = this.text();
+	/* $('#city-input').val(name);
+    if ($('#search-btn').is(':visible')) { // Don't trigger event handler when search button is shown.
+		$('#search-btn').data('city', this);
+		return;
+	} */
+	map.setCurrentCity(name); 
+	$('.info-list').empty(); // Empty the list pane;
+	var storeList = $(this).data('stores');
+	if ($(this).data('drawn') == false) { // Don't drawn the same city twice.
+		var pointList = [];
+	    $.each(storeList, function(i, store){
+			var point = new BMap.Point(store['Longitude'], store['Latitude']);    
+			pointList.push(point);
+			drawOnMap(map, store['Name'], store['Address'], point);
+		});
+		$(this).data('pointList', pointList);
+		$(this).data('drawn', true);
+	}
+	// Show store infor on the list pane.
+	$.each(storeList, function(i, store){
+		showOnList(store['Name'], store['Address']);
+	});
+	// Use this line to show all points within the map view.
+	// map.setViewport($(this).data('pointList')); 
+	map.centerAndZoom(name, 12);
+}
 
 function drawOnMap(map, name, address, point) {
 	var marker = new BMap.Marker(point);        // Create a marker    

@@ -40,7 +40,7 @@
 }
 
 .dropdown-menu {
-	max-height: 140px;
+	max-height: 135px;
 	overflow-y: scroll;
 	background-color:rgba(255,255,255,0.8);
 	width: 100%;
@@ -239,7 +239,7 @@
 }
 
 li .map-marker{
-	background: url(http://api.map.baidu.com/images/markers.png) -23px 0px no-repeat;
+	background: url(../img/markers.png) -23px 0px no-repeat;
 	width: 19px;
 	height: 25px;
 	cursor: pointer;
