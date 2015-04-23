@@ -1,12 +1,11 @@
-/*
-* In this case, we read and store all the data once for all. 
-* */
-
+/**
+ * @author: Ruoyi Chen
+ **/
 $(function () {
 	loadMap();
 });
 
-function loadMap() {
+function loadMap() { // Asynchronously load the lib script.
 	var script = document.createElement("script");
 	script.type = "text/javascript";
 	script.src = "http://api.map.baidu.com/api?v=2.0&ak=Ch1jgxD8xmtI5tObYIoEZ9dL&callback=initEverything";
