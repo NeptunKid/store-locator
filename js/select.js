@@ -2,7 +2,6 @@
  * @author: Ruoyi Chen
  **/
 $(function () {
-	var MAP; // Global variable.
 	$.getJSON ('js/stores.json', function(data) {
 		var stores = [];
 		var menu = [];
