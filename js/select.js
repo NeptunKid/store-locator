@@ -2,6 +2,7 @@
  * @author: Ruoyi Chen
  **/
 $(function () {
+	loadMap();
 	$.getJSON ('js/stores.json', function(data) {
 		var stores = [];
 		var menu = [];
@@ -23,12 +24,16 @@ $(function () {
 				$('#search-btn').data('city', null);
 				$('#city-menu').detach();
 			    $(this).data('cityMenu').appendTo('#city-dropdown');
-				// TODO: Add event listeners of city-menu items here.
 			});
 			item.appendTo('#prov-menu');
 		});
+
+		if ($('#prov-menu').data("map")) {
+			addEventHandlers(); 
+		} else {
+			setTimeout(addEventHandlers, 2000);
+		}
 	});
-	loadMap();
 });
 
 // Create a jQuery object containing dom and data values for a given city.
@@ -56,7 +61,11 @@ function initMap() {
 	map.addControl(leftNavigation);     
 	map.setCurrentCity("上海");
 	map.enableScrollWheelZoom();
+	$('#prov-menu').data("map", map);
+}
 
+function addEventHandlers () {
+	var map = $('#prov-menu').data("map");
 	$.each($('#prov-menu').children(), function(i, prov) {
 		$.each($(prov).data('cityMenu').children(), function(j, city) {
 			$(city).on('click', function () {
@@ -65,21 +74,22 @@ function initMap() {
 					$('#search-btn').data('city', $(city));
 				    return;
 				}
-				searchEventHandler.bind($(city))(map);
+				searchEventHandler.bind($(city))();
 			});
 		});
 	});
 
 	$('#search-btn').on('click', function() {
 		if ($(this).data('city')) {
-			searchEventHandler.bind($(this).data('city'))(map);	
+			searchEventHandler.bind($(this).data('city'))();	
 		} else { // When no city is chosen, show China map;
 			map.centerAndZoom(originP, 5);	
 		}
 	});
 }  
 
-function searchEventHandler(map) { // Use this to refer to the city item.
+function searchEventHandler() { // Use this to refer to the city item.
+	var map = $('#prov-menu').data("map");
 	var name = this.text();
 	map.setCurrentCity(name); 
 	$('.info-list').empty(); // Empty the list pane;
@@ -103,7 +113,8 @@ function searchEventHandler(map) { // Use this to refer to the city item.
 	map.centerAndZoom(name, 12);
 }
 
-function drawOnMap(map, name, address, point) {
+function drawOnMap(name, address, point) {
+	var map = $('#prov-menu').data("map");
 	var marker = new BMap.Marker(point);        // Create a marker    
 	var opts = {    
 		width : 150,         
