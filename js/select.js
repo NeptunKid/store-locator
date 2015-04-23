@@ -3,7 +3,6 @@
  **/
 $(function () {
 	var MAP; // Global variable.
-	loadMap();
 	$.getJSON ('js/stores.json', function(data) {
 		var stores = [];
 		var menu = [];
@@ -30,6 +29,7 @@ $(function () {
 			item.appendTo('#prov-menu');
 		});
 	});
+	loadMap();
 });
 
 // Create a jQuery object containing dom and data values for a given city.
