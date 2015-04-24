@@ -24,6 +24,7 @@ Please check out the latest version here: https://github.com/NeptunKid/store-loc
 6. Smart draw:
    * No drawing of cities haven’t been selected.
    * No re-drawing of cities that have already been drawn before.  
+7. Asynchronous loading of multiple js files separates visual and control stages and maximized the overall experience when network is not stable.
 
 # Compatibility:
 1. PC Browsers:
@@ -52,6 +53,7 @@ Please check out the latest version here: https://github.com/NeptunKid/store-loc
 
 
 # TO-DO:
+- [X] Refactor js code. Use asynchronous loading for multiple js files and separate dom creation process from event handler binding. 
 - [ ] Fix the bug of positioning on Android Wechat browser (which is evil): dropdown button & menu list & scroll bar not correctly positioned. 
 - [ ] Add shadowed triangles to the bottom of tabs 
 - [ ] Shorten mobile page to fit phone screens (able to be viewed within a single viewport on iPhone6).  
