@@ -66,6 +66,7 @@ function initMap() {
 
 function addEventHandlers () {
 	var map = $('#prov-menu').data("map");
+	var originP = new BMap.Point(116.404, 39.915);
 	$.each($('#prov-menu').children(), function(i, prov) {
 		$.each($(prov).data('cityMenu').children(), function(j, city) {
 			$(city).on('click', function () {
