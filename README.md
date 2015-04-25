@@ -55,7 +55,7 @@ Please check out the latest version here: https://github.com/NeptunKid/store-loc
 # TO-DO:
 - [X] Refactor js code. Use asynchronous loading for multiple js files and separate dom creation process from event handler binding. 
 - [ ] Fix the bug of positioning on Android Wechat browser (which is evil): dropdown button & menu list & scroll bar not correctly positioned. 
-- [ ] Add shadowed triangles to the bottom of tabs 
+- [X] Add shadowed triangles to the bottom of tabs 
 - [ ] Shorten mobile page to fit phone screens (able to be viewed within a single viewport on iPhone6).  
 - [ ] Further polish ui style.
 - [ ] Dynamically load mobile version of Baidu Map api when detecting useragent to be mobile device.   

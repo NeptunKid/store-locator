@@ -142,7 +142,6 @@
 	border-top: none;
 	border-left: none;
 	border-right: none;
-	position: relative;
 }
 
 .select-label {
@@ -162,7 +161,7 @@
 	border-bottom: 2px solid #CDB885;
 	z-index: 1;
 	position: relative;
-	float: left;
+	display: table-cell;
 }
 
 #search-btn {
